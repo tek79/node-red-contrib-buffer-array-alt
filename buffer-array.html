@@ -1,0 +1,55 @@
+<script type="text/javascript">
+  RED.nodes.registerType('buffer-array',{
+    category: 'function',
+    color: '#E2D96E',
+    defaults: {
+      name: {value:""},
+      bufferLen: {
+        value:6,
+        validate: (v) => {
+            return v > 0;
+        }
+      }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "buffer-array.png",
+    label: function() {
+      return this.name||"buffer-array";
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="buffer-array">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-bufferLen"><i class="icon-tag"></i> Buffer Length</label>
+        <input type="number" id="node-input-bufferLen" placeholder="6">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="buffer-array">
+    <p>This node fills an array of a given length with payload values.</p>
+    <h3>Input</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">any</span></dt>
+    </dl>
+    <h3>Output</h3>
+    <ol class="node-ports">
+        <li>Standard Output
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">any</span></dt>
+                <dd>the buffer array of a given length containing the last payloads added from the tail.</dd>
+            </dl>
+        </li>
+    </ol>
+    <h3>Use Cases</h3>
+    <p>The idea for this node came up to be able to get the average value of the last few payloads.
+    The last numeric payload values of a sensor stream are available in the output array of this node. You could attach
+    a standard <code>change node</code> to set a variable with the expression <code>$average(payload)</code> to get the
+    average out of the buffer array.
+    Of course you also can use other expressions like <code>$max(payload)</code> to get the maximum value of the last payloads.</p>
+</script>
