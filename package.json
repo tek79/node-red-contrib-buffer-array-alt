@@ -6,13 +6,15 @@
     }
   },
   "deprecated": false,
-  "description": "Node-RED node to fill a buffer array.",
+  "description": "Node-RED node to fill an buffer array.",
   "keywords": [
     "node-red",
     "array",
     "buffer",
-    "buffer-array"
+    "bufferarray",
+    "ring buffer",
+    "ring buffer array"
   ],
   "license": "MIT",
-  "version": "0.0.1"
+  "version": "0.1.0"
 }

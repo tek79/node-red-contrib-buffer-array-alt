@@ -34,22 +34,34 @@
 <script type="text/x-red" data-help-name="buffer-array">
     <p>This node fills an array of a given length with payload values.</p>
     <h3>Input</h3>
-    <dl class="message-properties">
-        <dt>payload <span class="property-type">any</span></dt>
-    </dl>
+    <ol class="node-ports">
+        <li>Standard Input
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">any</span></dt>
+            </dl>
+        </li>
+    </ol>
     <h3>Output</h3>
     <ol class="node-ports">
         <li>Standard Output
             <dl class="message-properties">
-                <dt>payload <span class="property-type">any</span></dt>
-                <dd>the buffer array of a given length containing the last payloads added from the tail.</dd>
+                <dt>payload <span class="property-type">array</span></dt>
+                <dd>the buffer array of a given length containing the last payloads added from the tail (right to
+                    left).
+                </dd>
             </dl>
         </li>
     </ol>
-    <h3>Use Cases</h3>
-    <p>The idea for this node came up to be able to get the average value of the last few payloads.
-    The last numeric payload values of a sensor stream are available in the output array of this node. You could attach
-    a standard <code>change node</code> to set a variable with the expression <code>$average(payload)</code> to get the
-    average out of the buffer array.
-    Of course you also can use other expressions like <code>$max(payload)</code> to get the maximum value of the last payloads.</p>
+    <h3>Details</h3>
+    <p>The input payload will be added at the last position of the output array. The array has a defined length of
+        items. The first item is the oldest value and the last the newest.</p>
+    <p>If you use numeric values, you are able to get the average value of the last few payloads. To get the average
+        value, you might attach a standard <b>change node</b> to set a variable with the expression <code>$average(payload)</code>.
+        Of course you might use other expressions like <code>$max(payload)</code> to get the maximum value of the last
+        payloads, etc.</p>
+    <h3>Possible Use Case</h3>
+    <p>Sometimes, it's helpful to buffer some values of a sensor payload stream. This could be the case, if your output
+        device is slower than your sensor data input stream. If you don't want to miss values in between the velocity
+        gap of input and output devices you are able to use the value buffer to calculate the average of the last few
+        values.</p>
 </script>
