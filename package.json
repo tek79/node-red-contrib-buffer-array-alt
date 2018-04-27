@@ -7,7 +7,7 @@
     }
   },
   "deprecated": false,
-  "description": "Node-RED node to fill an buffer array.",
+  "description": "Node-RED node to fill an ring buffer array.",
   "keywords": [
     "node-red",
     "array",

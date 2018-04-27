@@ -1,13 +1,14 @@
 # node-red-contrib-buffer-array
-Node-RED node to fill an buffer array.
+Node-RED node to fill an ring buffer array.
 
 This node fills an array of a given length with payload values.
 
 ## Motivation
 
-Sometimes, it's helpful to buffer some values of a sensor payload stream. This could be the case, if your output device is slower than your sensor data input stream. If you don't want to miss values in between the velocity
-gap of input and output devices you are able to use the value buffer to calculate the average of the last few
-values.
+Sometimes it's helpful to buffer some values of a sensor payload stream. This could be the case, if your output
+device is slower than your sensor data input stream. If you don't want to miss values in between the velocity
+gap of input and output devices (Nyquist–Shannon sampling theorem), you can use the value buffer to calculate
+the average of the last few values.
 
 
 ## Installation
@@ -38,16 +39,16 @@ npm install node-red-contrib-buffer-array
 
 ***payload*** *array*
 
-the buffer array of a given length containing the last payloads added from the tail (right to left).
+the buffer array of a given length containing a collection of payloads (added from right to left).
 
 **Details**
 
-The input payload will be added at the last position of the output array. The array has a defined length of
-items. The first item is the oldest value and the last the newest.
+The input payload will be added to the end of the output array. The array has a defined length of
+items. The first item is the oldest value and the last one is the newest.
 
-If you use numeric values, you are able to get the average value of the last few payloads. To get the average
+If you use numeric values, you'll be able to get the average value of the payloads inside the array. To get the average
 value, you might attach a standard **change node** to set a variable with the expression `$average(payload)`.
-Of course you might use other expressions like `$max(payload)` to get the maximum value of the last
+Of course, you might use other expressions like `$max(payload)` to get the maximum value of the collected
 payloads, etc.
 
 ## Flows

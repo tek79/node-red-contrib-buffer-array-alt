@@ -46,22 +46,22 @@
         <li>Standard Output
             <dl class="message-properties">
                 <dt>payload <span class="property-type">array</span></dt>
-                <dd>the buffer array of a given length containing the last payloads added from the tail (right to
-                    left).
+                <dd>the buffer array of a given length containing a collection of payloads
+                    (added from right to left).
                 </dd>
             </dl>
         </li>
     </ol>
     <h3>Details</h3>
-    <p>The input payload will be added at the last position of the output array. The array has a defined length of
-        items. The first item is the oldest value and the last the newest.</p>
-    <p>If you use numeric values, you are able to get the average value of the last few payloads. To get the average
+    <p>The input payload will be added to the end of the output array. The array has a defined length of
+        items. The first item is the oldest value and the last one is the newest.</p>
+    <p>If you use numeric values, you'll be able to get the average value of the payloads inside the array. To get the average
         value, you might attach a standard <b>change node</b> to set a variable with the expression <code>$average(payload)</code>.
-        Of course you might use other expressions like <code>$max(payload)</code> to get the maximum value of the last
+        Of course, you might use other expressions like <code>$max(payload)</code> to get the maximum value of the collected
         payloads, etc.</p>
     <h3>Possible Use Case</h3>
-    <p>Sometimes, it's helpful to buffer some values of a sensor payload stream. This could be the case, if your output
+    <p>Sometimes it's helpful to buffer some values of a sensor payload stream. This could be the case, if your output
         device is slower than your sensor data input stream. If you don't want to miss values in between the velocity
-        gap of input and output devices you are able to use the value buffer to calculate the average of the last few
-        values.</p>
+        gap of input and output devices (Nyquist–Shannon sampling theorem), you can use the value buffer to calculate
+        the average of the last few values.</p>
 </script>
