@@ -9,6 +9,9 @@
         validate: (v) => {
             return v > 0;
         }
+      },
+      startWhenFilled: {
+        value: false
       }
     },
     inputs: 1,
@@ -26,8 +29,14 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-bufferLen"><i class="icon-tag"></i> Buffer Length</label>
+        <label for="node-input-bufferLen"><i class="fa fa-expand"></i> Buffer Length</label>
         <input type="number" id="node-input-bufferLen" placeholder="6">
+    </div>
+    <div class="form-row">
+        <label for="node-input-startWhenFilled" style="width:100%">
+            <input type="checkbox" id="node-input-startWhenFilled" style="width:1rem;margin:0">
+            Starting output when buffer filled
+        </label>
     </div>
 </script>
 
@@ -59,6 +68,9 @@
         value, you might attach a standard <b>change node</b> to set a variable with the expression <code>$average(payload)</code>.
         Of course, you might use other expressions like <code>$max(payload)</code> to get the maximum value of the collected
         payloads, etc.</p>
+    <p>If you check the option <code>Starting output when buffer filled</code> the node will not output anything until the array
+        is filled completely. If the buffer array has a length of 6 items, the first 5 node calls will not lead to an
+        output of an buffer array. The 6th call will output the filled buffer array with all 6 items.</p>
     <h3>Possible Use Case</h3>
     <p>Sometimes it's helpful to buffer some values of a sensor payload stream. This could be the case, if your output
         device is slower than your sensor data input stream. If you don't want to miss values in between the velocity
