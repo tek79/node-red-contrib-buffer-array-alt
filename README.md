@@ -51,6 +51,9 @@ value, you might attach a standard **change node** to set a variable with the ex
 Of course, you might use other expressions like `$max(payload)` to get the maximum value of the collected
 payloads, etc.
 
+If you check the option `Starting output when buffer filled` the node will not output anything until the array is filled completely. If the buffer array has a length of 6 items, the first 5 node calls will not lead to an output of an buffer array. The 6th call will output the filled buffer array with all 6 items.
+
+
 ## Flows
 
 Example flow:
