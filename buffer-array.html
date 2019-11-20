@@ -5,7 +5,7 @@
     defaults: {
       name: {value:""},
       bufferLen: {
-        value:6,
+        value:10,
         validate: (v) => {
             return v > 0;
         }
@@ -30,13 +30,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-bufferLen"><i class="fa fa-expand"></i> Buffer Length</label>
-        <input type="number" id="node-input-bufferLen" placeholder="6">
-    </div>
-    <div class="form-row">
-        <label for="node-input-startWhenFilled" style="width:100%">
-            <input type="checkbox" id="node-input-startWhenFilled" style="width:1rem;margin:0">
-            Starting output when buffer filled
-        </label>
+        <input type="number" id="node-input-bufferLen" placeholder="10">
     </div>
 </script>
 
@@ -55,25 +49,13 @@
         <li>Standard Output
             <dl class="message-properties">
                 <dt>payload <span class="property-type">array</span></dt>
-                <dd>the buffer array of a given length containing a collection of payloads
+                <dd>the buffer array up to a given length containing a collection of payloads
                     (added from right to left).
                 </dd>
             </dl>
         </li>
     </ol>
     <h3>Details</h3>
-    <p>The input payload will be added to the end of the output array. The array has a defined length of
-        items. The first item is the oldest value and the last one is the newest.</p>
-    <p>If you use numeric values, you'll be able to get the average value of the payloads inside the array. To get the average
-        value, you might attach a standard <b>change node</b> to set a variable with the expression <code>$average(payload)</code>.
-        Of course, you might use other expressions like <code>$max(payload)</code> to get the maximum value of the collected
-        payloads, etc.</p>
-    <p>If you check the option <code>Starting output when buffer filled</code> the node will not output anything until the array
-        is filled completely. If the buffer array has a length of 6 items, the first 5 node calls will not lead to an
-        output of an buffer array. The 6th call will output the filled buffer array with all 6 items.</p>
-    <h3>Possible Use Case</h3>
-    <p>Sometimes it's helpful to buffer some values of a sensor payload stream. This could be the case, if your output
-        device is slower than your sensor data input stream. If you don't want to miss values in between the velocity
-        gap of input and output devices (Nyquist–Shannon sampling theorem), you can use the value buffer to calculate
-        the average of the last few values.</p>
+    <p>The input payload will be added to the beginning of the output array. The array has a variable length of
+        items, up to the set limit. The first item is the newest value and the last one is the oldest.</p>
 </script>
