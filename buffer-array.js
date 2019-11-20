@@ -6,7 +6,7 @@ module.exports = function(RED) {
 
     const node = this;
     const bufferLen = parseInt(config.bufferLen) || 6;
-    let waitCount = (config.startWhenFilled) ? bufferLen-1 : 0;
+
     let output = false;
 
     node.on('input', function(msg) {
@@ -15,22 +15,17 @@ module.exports = function(RED) {
           (() => {
             let ret = [];
             for (let i = 0; i < bufferLen; i++) {
-              ret.push(0);
+              ret.unshift(0);
             }
             return ret;
           })();
 
-      bufferArray.shift();
-      bufferArray.push(msg.payload);
+      bufferArray.pop();
+      bufferArray.unshift(msg.payload);
       output = bufferArray;
 
-      if (waitCount > 0) {
-        this.status({fill:"yellow",shape:"ring",text:`waiting ${waitCount}`});
-        waitCount--;
-      } else {
-        this.status({});
-        msg.payload = output;
-        node.send(msg);
+      msg.payload = output;
+      node.send(msg);
       }
 
     });
