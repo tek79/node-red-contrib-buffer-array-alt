@@ -1,7 +1,9 @@
-# node-red-contrib-buffer-array
+# node-red-contrib-buffer-array-alt
 Node-RED node to fill a ring buffer array.
 
 This node fills an array of a given length with payload values.
+
+REGARDLESS OF THE BRANCH NAME, THIS IS UNDER ACTIVE DEVELOPMENT. PLEASE DO NOT USE THIS CODE YET!
 
 ## Installation
 
