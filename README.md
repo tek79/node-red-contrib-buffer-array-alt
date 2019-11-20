@@ -1,15 +1,7 @@
 # node-red-contrib-buffer-array
-Node-RED node to fill an ring buffer array.
+Node-RED node to fill a ring buffer array.
 
 This node fills an array of a given length with payload values.
-
-## Motivation
-
-Sometimes it's helpful to buffer some values of a sensor payload stream. This could be the case, if your output
-device is slower than your sensor data input stream. If you don't want to miss values in between the velocity
-gap of input and output devices (Nyquist–Shannon sampling theorem), you can use the value buffer to calculate
-the average of the last few values.
-
 
 ## Installation
 
@@ -18,13 +10,6 @@ This package uses ES2015 code. Therefore use at least version 6.4.0 of
 
 This package is a node for Node-RED.
 [Install Node-RED](https://nodered.org/docs/getting-started/installation)
-
-Install this package:
-```
-npm install node-red-contrib-buffer-array
-```
-
-... or use the palette manager of the Node-RED ui.
 
 
 ## Nodes
@@ -39,22 +24,12 @@ npm install node-red-contrib-buffer-array
 
 ***payload*** *array*
 
-the buffer array of a given length containing a collection of payloads (added from right to left).
+the buffer array of a given length containing a collection of payloads (added from left to right).
 
 **Details**
 
-The input payload will be added to the end of the output array. The array has a defined length of
-items. The first item is the oldest value and the last one is the newest.
-
-If you use numeric values, you'll be able to get the average value of the payloads inside the array. To get the average
-value, you might attach a standard **change node** to set a variable with the expression `$average(payload)`.
-Of course, you might use other expressions like `$max(payload)` to get the maximum value of the collected
-payloads, etc.
-
-If you check the option `Starting output when buffer filled` the node will not output anything until the array is filled
-completely. I.e. if the buffer array has a length of 6 items, the first 5 node calls will not lead to an output of an
-buffer array. The 6th call will output the filled buffer array with all 6 items.
-
+The input payload will be added to the beginning of the output array. The array has a variable length of
+items, up to a set number. The first item is the newest value and the last one is the oldest.
 
 ## Flows
 
