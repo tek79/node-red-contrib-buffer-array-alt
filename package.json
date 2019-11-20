@@ -21,9 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IOIO72/node-red-contrib-buffer-array.git"
+    "url": "https://github.com/tek79/node-red-contrib-buffer-array-alt.git"
   },
   "contributors": [
+    {
+      "name": "tek79"
+    }
     {
       "name": "Tamio Honma",
       "email": "tamio@honma.de",
