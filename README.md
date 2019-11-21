@@ -3,8 +3,6 @@ Node-RED node to fill a ring buffer array.
 
 This node fills an array of a given length with payload values.
 
-REGARDLESS OF THE BRANCH NAME, THIS IS UNDER ACTIVE DEVELOPMENT. PLEASE DO NOT USE THIS CODE YET!
-
 ## Installation
 
 This package uses ES2015 code. Therefore use at least version 6.4.0 of
@@ -26,12 +24,12 @@ This package is a node for Node-RED.
 
 ***payload*** *array*
 
-the buffer array of a given length containing a collection of payloads (added from left to right).
+a circular array with user-defined max length containing a collection of payloads (added from left to right)
 
 **Details**
 
-The input payload will be added to the beginning of the output array. The array has a variable length of
-items, up to a set number. The first item is the newest value and the last one is the oldest.
+The input payload will be added to the beginning of the output array. The array has a variable length with a
+user-defined maximum. The first item is the newest value and the last one is the oldest.
 
 ## Flows
 
