@@ -25,5 +25,5 @@ module.exports = function(RED) {
     });
   }
 
-  RED.nodes.registerType('buffer-array', BufferArray);
+  RED.nodes.registerType('buffer-array-alt', BufferArray);
 };
