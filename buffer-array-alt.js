@@ -1,6 +1,6 @@
 module.exports = function(RED) {
 
-  function BufferArray(config) {
+  function BufferArrayAlt(config) {
 
     RED.nodes.createNode(this,config);
 
@@ -25,5 +25,5 @@ module.exports = function(RED) {
     });
   }
 
-  RED.nodes.registerType('buffer-array-alt', BufferArray);
+  RED.nodes.registerType('buffer-array-alt', BufferArrayAlt);
 };
