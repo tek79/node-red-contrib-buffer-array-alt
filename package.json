@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-buffer-array",
+  "name": "node-red-contrib-buffer-array-alt",
   "node-red": {
     "version": ">=0.14.0",
     "nodes": {
@@ -16,9 +16,6 @@
     "ring buffer",
     "ring buffer array"
   ],
-  "scripts": {
-    "test": "mocha test/_spec.js"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tek79/node-red-contrib-buffer-array-alt.git"
