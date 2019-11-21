@@ -24,7 +24,7 @@ This package is a node for Node-RED.
 
 ***payload*** *array*
 
-a circular array with user-defined max length containing a collection of payloads (added from left to right)
+A circular array of user-defined maximum length containing a collection of payloads (added from left to right).
 
 **Details**
 
