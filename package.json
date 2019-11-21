@@ -3,7 +3,7 @@
   "node-red": {
     "version": ">=0.14.0",
     "nodes": {
-      "buffer-array": "buffer-array.js"
+      "buffer-array-alt": "buffer-array-alt.js"
     }
   },
   "deprecated": false,
