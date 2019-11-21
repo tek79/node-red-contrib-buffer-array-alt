@@ -9,20 +9,15 @@ module.exports = function(RED) {
     let output = false;
 
     node.on('input', function(msg) {
-
-      let bufferArray = output ||
-          (() => {
-            let ret = [];
-            for (let i = 0; i < bufferLen; i++) {
-              ret.unshift(0);
-            }
-            return ret;
-          })();
-
-      bufferArray.pop();
+      
       bufferArray.unshift(msg.payload);
+      let curLength = bufferArray.length;
+      
+      while(curLength > bufferLen) {
+        bufferArray.pop();
+      }
+      
       output = bufferArray;
-
       msg.payload = output;
       node.send(msg);
 
