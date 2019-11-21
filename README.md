@@ -2,11 +2,11 @@
 Node-RED node to fill a circular buffer array.
 
 This node fills an array with payload values and begins discarding the oldest payload values once a 
-user-definned maximum has been reached.
+user-defined maximum length has been reached.
 
 ## Installation
 
-This package uses ES2015 code. Therefore use at least version 6.4.0 of
+This package uses ES2015 code. Use at least version 6.4.0 of
 [Node.js](https://nodejs.org/).
 
 This package is a node for Node-RED.
