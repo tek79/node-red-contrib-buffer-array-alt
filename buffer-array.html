@@ -35,7 +35,7 @@
 </script>
 
 <script type="text/x-red" data-help-name="buffer-array">
-    <p>This node fills an array of a given length with payload values.</p>
+    <p>This node fills an array up to a given length with payload values.</p>
     <h3>Input</h3>
     <ol class="node-ports">
         <li>Standard Input
@@ -56,6 +56,6 @@
         </li>
     </ol>
     <h3>Details</h3>
-    <p>The input payload will be added to the beginning of the output array. The array has a variable length of
-        items, up to the set limit. The first item is the newest value and the last one is the oldest.</p>
+    <p>The input payload will be added to the beginning of the output array. The array size is variable and
+    will increase in size, up to the set limit. The first item is the newest value and the last one is the oldest.</p>
 </script>
