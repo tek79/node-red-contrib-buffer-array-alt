@@ -5,8 +5,7 @@ module.exports = function(RED) {
     RED.nodes.createNode(this,config);
 
     const node = this;
-    const bufferLen = parseInt(config.bufferLen) || 6;
-
+    const bufferLen = parseInt(config.bufferLen) || 10;
     let output = false;
 
     node.on('input', function(msg) {
@@ -26,7 +25,6 @@ module.exports = function(RED) {
 
       msg.payload = output;
       node.send(msg);
-      }
 
     });
   }
