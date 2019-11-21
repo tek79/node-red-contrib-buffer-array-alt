@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  RED.nodes.registerType('buffer-array',{
+  RED.nodes.registerType('buffer-array-alt',{
     category: 'function',
     color: '#E2D96E',
     defaults: {
@@ -10,32 +10,29 @@
             return v > 0;
         }
       },
-      startWhenFilled: {
-        value: false
-      }
     },
     inputs: 1,
     outputs: 1,
     icon: "buffer-array.png",
     label: function() {
-      return this.name||"buffer-array";
+      return this.name||"buffer-array-alt";
     }
   });
 </script>
 
-<script type="text/x-red" data-template-name="buffer-array">
+<script type="text/x-red" data-template-name="buffer-array-alt">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-bufferLen"><i class="fa fa-expand"></i> Buffer Length</label>
+        <label for="node-input-bufferLen"><i class="fa fa-expand"></i> Max Length</label>
         <input type="number" id="node-input-bufferLen" placeholder="10">
     </div>
 </script>
 
 <script type="text/x-red" data-help-name="buffer-array">
-    <p>This node fills an array up to a given length with payload values.</p>
+    <p>This node fills a circular array with payload values.</p>
     <h3>Input</h3>
     <ol class="node-ports">
         <li>Standard Input
@@ -49,13 +46,13 @@
         <li>Standard Output
             <dl class="message-properties">
                 <dt>payload <span class="property-type">array</span></dt>
-                <dd>the buffer array up to a given length containing a collection of payloads
-                    (added from left to right).
+                <dd>An array containing a collection of payloads,
+                    added from left to right.
                 </dd>
             </dl>
         </li>
     </ol>
     <h3>Details</h3>
     <p>The input payload will be added to the beginning of the output array. The array size is variable and
-    will increase in size, up to the set limit. The first item is the newest value and the last one is the oldest.</p>
+    will increase in size, up to the user-defined maximum length. The first item is the newest value and the last one is the oldest.</p>
 </script>
